@@ -191,12 +191,36 @@
         transform: translateY(-3px);
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
       }
+
+      /* Swiper Styling */
       .swiper-pagination-bullet {
         display: inline-block;
         border: 1px solid #6525f9;
         background: none;
         opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.9);
       }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 25px; /* Size of the circular button */
+        height: 25px;
+        background-color: #ff6767;
+        border-radius: 50%; /* Circular shape */
+      }
+
+      /* Arrow within the button */
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 16px; /* Adjust arrow icon size */
+        font-weight: bold;
+        color: black;
+      }
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background-color: #cc5252; /* Darker red on hover */
+      }
+
       .swiper-pagination-bullet-active {
         background: #6525f9 !important;
       }
@@ -263,6 +287,9 @@
             />
           </div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
         <div class="swiper-pagination"></div>
       </div>
 
@@ -338,6 +365,10 @@
         new Swiper(".swiper", {
           pagination: {
             el: ".swiper-pagination",
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
           },
           touchEventsTarget: "container",
           a11y: {
